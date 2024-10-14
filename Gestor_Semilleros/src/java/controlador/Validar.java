@@ -70,7 +70,7 @@ public class Validar extends HttpServlet {
         System.out.println("Acción recibida: " + accion);
         if (accion.equalsIgnoreCase("Ingresar")) {
             em.setUsuario(request.getParameter("txt_usuario"));
-            em.setContraseña(request.getParameter("txt_contraseña"));
+            em.setContrasena(request.getParameter("txt_contra"));
             em = eDAO.validar(em);
             if (em.getUsuario()!= null) {
                 HttpSession sesion = request.getSession();

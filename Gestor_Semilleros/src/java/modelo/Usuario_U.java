@@ -12,7 +12,7 @@ public class Usuario_U {
 
     private int id;
     private String usuario;
-    private String contraseña;
+    private String contrasena;
 
     public int getId() {
         return id;
@@ -30,12 +30,12 @@ public class Usuario_U {
         this.usuario = usuario;
     }
 
-    public String getContraseña() {
-        return contraseña;
+    public String getContrasena() {
+        return contrasena;
     }
 
-    public void setContraseña(String contraseña) {
-        this.contraseña = contraseña;
+    public void setContrasena(String contraseña) {
+        this.contrasena = contraseña;
     }
     
     

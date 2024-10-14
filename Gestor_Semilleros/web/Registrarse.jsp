@@ -31,7 +31,7 @@
                         </div>
                         <div class="form-group">
                             <label id="Password">Contraseña:</label>
-                            <input type="password" name="txt_contraseña" class="form-control" required>
+                            <input type="password" name="txt_contra" class="form-control" required>
                         </div>
                         <input type="submit" name="accion" value="LISTO" class="btn btn-primary btn-block" data-toggle="modal" data-target="#successModal"> 
                         <br>

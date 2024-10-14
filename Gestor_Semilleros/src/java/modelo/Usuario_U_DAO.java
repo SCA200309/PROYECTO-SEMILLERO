@@ -24,17 +24,17 @@ public class Usuario_U_DAO {
 
     public Usuario_U validar(Usuario_U item) {
         Usuario_U em = new Usuario_U();
-        String sql = "SELECT * FROM project.usuarios_u WHERE usuario=? AND contraseña=?";
+        String sql = "SELECT * FROM project.usuarios_u WHERE usuario=? AND contrasena=?";
         try {
             con = cn.Conexion();
             ps = con.prepareStatement(sql);
             ps.setString(1, item.getUsuario());
-            ps.setString(2, item.getContraseña());
+            ps.setString(2, item.getContrasena());
             rs = ps.executeQuery();
             while (rs.next()) {
-                em.setId(rs.getInt("Id"));
+                em.setId(rs.getInt("id"));
                 em.setUsuario(rs.getString("usuario"));
-                em.setContraseña(rs.getString("contraseña"));
+                em.setContrasena(rs.getString("contrasena"));
             }
         } catch (Exception e) {
         }
@@ -53,7 +53,7 @@ public class Usuario_U_DAO {
                 Usuario_U em = new Usuario_U();
                 em.setId(rs.getInt(1));
                 em.setUsuario(rs.getString(2));
-                em.setContraseña(rs.getString(3));
+                em.setContrasena(rs.getString(3));
                 lista.add(em);
             }
         } catch (Exception e) {
@@ -63,12 +63,12 @@ public class Usuario_U_DAO {
 
     public Usuario_U registrar(Usuario_U item) {
         Usuario_U em = new Usuario_U();
-        String sql = "INSERT INTO project.usuarios_u(`usuario`,`contraseña`) VALUES(?,?);";
+        String sql = "INSERT INTO project.usuarios_u(`usuario`,`contrasena`) VALUES(?,?);";
         try {
             con = cn.Conexion();
             ps = con.prepareStatement(sql);
             ps.setString(1, item.getUsuario());
-            ps.setString(2, item.getContraseña());
+            ps.setString(2, item.getContrasena());
             rs = ps.executeQuery();
             int res = ps.executeUpdate();
         } catch (Exception e) {
@@ -85,7 +85,7 @@ public class Usuario_U_DAO {
             rs = ps.executeQuery();
             while (rs.next()) {
                 em.setUsuario(rs.getString(2));
-                em.setContraseña(rs.getString(3));
+                em.setContrasena(rs.getString(3));
             }
         } catch (Exception e) {
         }
@@ -100,7 +100,7 @@ public class Usuario_U_DAO {
             con = cn.Conexion();
             ps = con.prepareStatement(sql);
             ps.setString(1, item.getUsuario());
-            ps.setString(2, item.getContraseña());
+            ps.setString(2, item.getContrasena());
             int res = ps.executeUpdate();
 
         } catch (Exception e) {
