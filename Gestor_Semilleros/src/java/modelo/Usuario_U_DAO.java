@@ -25,7 +25,7 @@ public class Usuario_U_DAO {
 
     public Usuario_U validar(Usuario_U item) {
         Usuario_U em = new Usuario_U();
-        String sql = "SELECT * FROM project.usuario_u WHERE USER =? AND password=?";
+        String sql = "SELECT * FROM project.usuarios_u WHERE USER =? AND password=?";
         try {
             con = cn.Conexion();
             ps = con.prepareStatement(sql);
@@ -44,7 +44,7 @@ public class Usuario_U_DAO {
 
     // Operaciones CRUD
     public List Listar() {
-        String sql = "SELECT * FROM sistema_ventas.empleado";
+        String sql = "SELECT * FROM project.usuarios_u";
         List<Usuario_U> lista = new ArrayList<>();
         try {
             con = cn.Conexion();
@@ -64,7 +64,7 @@ public class Usuario_U_DAO {
 
     public Usuario_U registrar(Usuario_U item) {
         Usuario_U em = new Usuario_U();
-        String sql = "INSERT INTO project.usuario_u\n"
+        String sql = "INSERT INTO project.usuarios_u\n"
                 + "(`usuario`,\n"
                 + "`contraseña`)\n"
                 + "VALUES\n"
@@ -81,9 +81,11 @@ public class Usuario_U_DAO {
         return em;
     }
 
+
+
     public Usuario_U listarId(int id) {
         Usuario_U em = new Usuario_U();
-        String sql = "SELECT * FROM project.usuario_u WHERE id = " + id;
+        String sql = "SELECT * FROM project.usuarios_u WHERE id = " + id;
         try {
             con = cn.Conexion();
             ps = con.prepareStatement(sql);
@@ -98,7 +100,7 @@ public class Usuario_U_DAO {
     }
 
     public Usuario_U actualizar(Usuario_U item) {
-        String sql = "Update project.usuario_u set \n"
+        String sql = "Update project.usuarios_u set \n"
                 + "usuario = ?,\n"
                 + "contraseña = ? WHERE id = ?\n";
         try {
@@ -114,7 +116,7 @@ public class Usuario_U_DAO {
     }
 
     public void delete(int id) {
-        String sql = "DELETE from project.usuario_u WHERE id =" + id;
+        String sql = "DELETE from project.usuarios_u WHERE id =" + id;
         try {
             con = cn.Conexion();
             ps = con.prepareStatement(sql);

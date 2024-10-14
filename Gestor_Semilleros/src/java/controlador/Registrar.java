@@ -71,6 +71,7 @@ public class Registrar extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String accion = request.getParameter("accion");
+        System.out.println("Acción recibida: " + accion);
         if (accion.equalsIgnoreCase("Listo")) {
             um.setUsuario(request.getParameter("txt_usuario"));
             um.setContraseña(request.getParameter("txt_contraseña"));

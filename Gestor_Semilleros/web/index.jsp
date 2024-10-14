@@ -26,11 +26,11 @@
                         </div>
                         <div class="form-group">
                             <label id="Usuario">Usuario:</label>
-                            <input type="text" name="txt_user" class="form-control" required="">
+                            <input type="text" name="txt_usuario" class="form-control" required="">
                         </div>
                         <div class="form-group">
                             <label id="Contraseña">Contraseña:</label>
-                            <input type="password" name="txt_pass" class="form-control" required="">
+                            <input type="password" name="txt_contraseña" class="form-control" required="">
                         </div>
                         <input type="submit" name="accion" value="Ingresar" class="btn btn-primary btn-block">
                     </form>
