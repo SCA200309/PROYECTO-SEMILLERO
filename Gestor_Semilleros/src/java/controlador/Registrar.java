@@ -75,7 +75,7 @@ public class Registrar extends HttpServlet {
         if (accion.equalsIgnoreCase("Listo")) {
             um.setUsuario(request.getParameter("txt_usuario"));
             um.setContrasena(request.getParameter("txt_contra"));
-
+            System.out.println("Registro Usuario Servlet: "+um.getUsuario()+" Contraseña: "+um.getContrasena());
             um = uDAO.registrar(um);
             request.getRequestDispatcher("index.jsp").forward(request, response);
         } else if (accion.equalsIgnoreCase("Regresar")) {

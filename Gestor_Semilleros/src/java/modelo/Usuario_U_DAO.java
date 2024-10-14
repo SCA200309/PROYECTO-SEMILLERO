@@ -30,6 +30,7 @@ public class Usuario_U_DAO {
             ps = con.prepareStatement(sql);
             ps.setString(1, item.getUsuario());
             ps.setString(2, item.getContrasena());
+            System.out.println("Validar Usuario DAO: "+item.getUsuario()+" Contraseña: "+item.getContrasena());
             rs = ps.executeQuery();
             while (rs.next()) {
                 em.setId(rs.getInt("id"));
@@ -69,7 +70,7 @@ public class Usuario_U_DAO {
             ps = con.prepareStatement(sql);
             ps.setString(1, item.getUsuario());
             ps.setString(2, item.getContrasena());
-            rs = ps.executeQuery();
+            System.out.println("Registro Usuario DAO: "+item.getUsuario()+" Contraseña: "+item.getContrasena());
             int res = ps.executeUpdate();
         } catch (Exception e) {
         }
