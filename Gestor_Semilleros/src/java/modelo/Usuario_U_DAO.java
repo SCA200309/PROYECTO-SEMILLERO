@@ -21,11 +21,10 @@ public class Usuario_U_DAO {
     Connection con;
     PreparedStatement ps;
     ResultSet rs;
-    int r;
 
     public Usuario_U validar(Usuario_U item) {
         Usuario_U em = new Usuario_U();
-        String sql = "SELECT * FROM project.usuarios_u WHERE USER =? AND password=?";
+        String sql = "SELECT * FROM project.usuarios_u WHERE usuario=? AND contraseña=?";
         try {
             con = cn.Conexion();
             ps = con.prepareStatement(sql);
@@ -34,8 +33,8 @@ public class Usuario_U_DAO {
             rs = ps.executeQuery();
             while (rs.next()) {
                 em.setId(rs.getInt("Id"));
-                em.setUsuario(rs.getString("Usuario"));
-                em.setContraseña(rs.getString("Contraseña"));
+                em.setUsuario(rs.getString("usuario"));
+                em.setContraseña(rs.getString("contraseña"));
             }
         } catch (Exception e) {
         }
@@ -64,24 +63,18 @@ public class Usuario_U_DAO {
 
     public Usuario_U registrar(Usuario_U item) {
         Usuario_U em = new Usuario_U();
-        String sql = "INSERT INTO project.usuarios_u\n"
-                + "(`usuario`,\n"
-                + "`contraseña`)\n"
-                + "VALUES\n"
-                + "(?,\n"
-                + "?);";
+        String sql = "INSERT INTO project.usuarios_u(`usuario`,`contraseña`) VALUES(?,?);";
         try {
             con = cn.Conexion();
             ps = con.prepareStatement(sql);
             ps.setString(1, item.getUsuario());
             ps.setString(2, item.getContraseña());
+            rs = ps.executeQuery();
             int res = ps.executeUpdate();
         } catch (Exception e) {
         }
         return em;
     }
-
-
 
     public Usuario_U listarId(int id) {
         Usuario_U em = new Usuario_U();
