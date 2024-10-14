@@ -5,11 +5,11 @@
 --%>
 
 <%@page import="config.CheckIP"%>
-<%@page import="modelo.Empleado"%>
+<%@page import="modelo.Usuario_U"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ page import="javax.servlet.http.HttpSession"%>
 <% HttpSession sesion = request.getSession();
-    Empleado em = (Empleado) sesion.getAttribute("usuario");
+    Usuario_U em = (Usuario_U) sesion.getAttribute("usuario");
     if (em != null) {
 %>
 <!DOCTYPE html>
@@ -35,13 +35,13 @@
             </div>
             <div class="dropdown">
                 <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">
-                    <%= em.getNombres()%>
+                    <%= em.getUsuario()%>
                 </button>
                 <div class="dropdown-menu text-center">
                     <a class="dropdown-item" href="#">
                         <img src="https://cdn-icons-png.flaticon.com/512/6073/6073873.png" alt="Descripción de la imagen" width="60" height="60" />
                     </a>
-                    <a class="dropdown-item" href="#"><%= em.getUser()%></a>
+                    <a class="dropdown-item" href="#"><%= em.getUsuario()%></a>
                     <div class="dropdown-divider"></div>
                     <form action="Validar" method="POST">
                         <input name="accion" type="submit" value="Salir" class="dropdown-item" href="#">

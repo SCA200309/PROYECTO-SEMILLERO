@@ -11,8 +11,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import modelo.Empleado;
-import modelo.EmpleadoDAO;
+import modelo.Usuario_U;
+import modelo.Usuario_U_DAO;
 
 /**
  *
@@ -20,8 +20,8 @@ import modelo.EmpleadoDAO;
  */
 public class Validar extends HttpServlet {
 
-    EmpleadoDAO eDAO = new EmpleadoDAO();
-    Empleado em = new Empleado();
+    Usuario_U_DAO eDAO = new Usuario_U_DAO();
+    Usuario_U em = new Usuario_U();
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -68,10 +68,10 @@ public class Validar extends HttpServlet {
             throws ServletException, IOException {
         String accion = request.getParameter("accion");
         if (accion.equalsIgnoreCase("Ingresar")) {
-            em.setUser(request.getParameter("txt_user"));
-            em.setPass(request.getParameter("txt_pass"));
+            em.setUsuario(request.getParameter("txt_user"));
+            em.setContraseña(request.getParameter("txt_pass"));
             em = eDAO.validar(em);
-            if (em.getUser() != null) {
+            if (em.getUsuario()!= null) {
                 HttpSession sesion = request.getSession();
                 sesion.setAttribute("usuario", em);
                 request.getRequestDispatcher("Controlador?menu=Principal").forward(request, response);

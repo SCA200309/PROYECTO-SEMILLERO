@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import modelo.Empleado;
+import modelo.Usuario_U;
 
 /**
  *
@@ -29,7 +29,7 @@ public class Controlador extends HttpServlet {
 
         String menu = request.getParameter("menu");
         HttpSession sesion = request.getSession();
-        Empleado ss = (Empleado) sesion.getAttribute("usuario");
+        Usuario_U ss = (Usuario_U) sesion.getAttribute("usuario");
         if (ss != null) {
             if (menu.equals("Principal")) {
                 request.getRequestDispatcher("Principal.jsp").forward(request, response);

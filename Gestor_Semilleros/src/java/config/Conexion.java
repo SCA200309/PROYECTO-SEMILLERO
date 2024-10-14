@@ -10,7 +10,7 @@ import java.sql.DriverManager;
 
 public class Conexion {
     Connection con;
-    String nombreBD = "sistema_ventas";
+    String nombreBD = "project";
     String user = "root";
     String pass = "jenisebas23";
     String url = "jdbc:mysql://localhost:3306/" + nombreBD + "?useUnicode = true&use"

@@ -10,8 +10,8 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import modelo.Empleado;
-import modelo.EmpleadoDAO;
+import modelo.Usuario_U;
+import modelo.Usuario_U_DAO;
 
 /**
  *
@@ -19,8 +19,8 @@ import modelo.EmpleadoDAO;
  */
 public class Registrar extends HttpServlet {
 
-    EmpleadoDAO eDAO = new EmpleadoDAO();
-    Empleado em = new Empleado();
+    Usuario_U_DAO uDAO = new Usuario_U_DAO();
+    Usuario_U um = new Usuario_U();
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -72,13 +72,10 @@ public class Registrar extends HttpServlet {
             throws ServletException, IOException {
         String accion = request.getParameter("accion");
         if (accion.equalsIgnoreCase("Listo")) {
-            em.setDni(request.getParameter("txt_dni"));
-            em.setNombres(request.getParameter("txt_nombre"));
-            em.setTel(request.getParameter("txt_tel"));
-            em.setUser(request.getParameter("txt_user"));
-            em.setPass(request.getParameter("txt_pass"));
+            um.setUsuario(request.getParameter("txt_user"));
+            um.setContraseña(request.getParameter("txt_pass"));
 
-            em = eDAO.registrar(em);
+            um = uDAO.registrar(um);
             request.getRequestDispatcher("index.jsp").forward(request, response);
         } else if (accion.equalsIgnoreCase("Regresar")) {
             request.getRequestDispatcher("index.jsp").forward(request, response);

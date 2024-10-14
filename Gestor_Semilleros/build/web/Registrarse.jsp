@@ -26,19 +26,7 @@
                             <label id="Login">Bienvenido de Nuevo al Sistema</label>
                         </div>
                         <div class="form-group">
-                            <label id="DNI">DNI:</label>
-                            <input type="text" name="txt_dni" class="form-control" required>
-                        </div>
-                        <div class="form-group">
-                            <label id="Nombre">Nombre:</label>
-                            <input type="text" name="txt_nombre" class="form-control" required>
-                        </div>
-                        <div class="form-group">
-                            <label id="Tel">Telefono:</label>
-                            <input type="text" name="txt_tel" class="form-control" required>
-                        </div>
-                        <div class="form-group">
-                            <label id="User">User:</label>
+                            <label id="User">Usuario:</label>
                             <input type="text" name="txt_user" class="form-control" required>
                         </div>
                         <div class="form-group">
