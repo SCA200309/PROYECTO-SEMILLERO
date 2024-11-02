@@ -83,6 +83,7 @@ public class Validar extends HttpServlet {
         } else if (accion.equals("Salir")) {
             HttpSession sesion = request.getSession();
             sesion.removeAttribute("usuario");
+            System.out.println(em.getUsuario());
             sesion.invalidate();
             request.getSession(true);
             request.getRequestDispatcher("index.jsp").forward(request, response);
