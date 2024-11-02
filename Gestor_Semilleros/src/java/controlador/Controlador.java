@@ -15,6 +15,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import modelo.Semilleros;
+import modelo.SemillerosDAO;
 import modelo.Usuario_U;
 
 /**
@@ -24,18 +26,61 @@ import modelo.Usuario_U;
 @WebServlet(name = "NewServlet", urlPatterns = {"/NewServlet"})
 public class Controlador extends HttpServlet {
 
+    Semilleros se = new Semilleros();
+    SemillerosDAO seDAO = new SemillerosDAO();
+    int id_se;
+
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
         String menu = request.getParameter("menu");
+        String accion = request.getParameter("accion");
         HttpSession sesion = request.getSession();
         Usuario_U ss = (Usuario_U) sesion.getAttribute("usuario");
         if (ss != null) {
             if (menu.equals("Principal")) {
                 request.getRequestDispatcher("Principal.jsp").forward(request, response);
             }
-        } else if (menu.equals("Registrarse")){
+        } else if (menu.equals("Registrarse")) {
             request.getRequestDispatcher("Registrarse.jsp").forward(request, response);
+        } else if (menu.equals("Semilleros")) {
+            switch (accion) {
+                case "Listar":
+                    List lista = seDAO.Listar();
+                    request.setAttribute("semilleros", lista);
+                    break;
+                case "Agregar":
+
+                    String nombre_semi = request.getParameter("txt_nombre");
+                    String id_grupo = request.getParameter("txt_GrupoInID");
+                    se.setNombre_s(nombre_semi);
+                    se.setGrupo_in_id(Integer.parseInt(id_grupo));
+                    seDAO.registrar(se);
+                    request.getRequestDispatcher("Controlador?menu=Semilleros&accion=Listar").forward(request, response);
+                    break;
+                case "Editar":
+                    id_se = Integer.parseInt(request.getParameter("id_s"));
+                    Semilleros s = seDAO.listarId(id_se);
+                    request.setAttribute("semillero", s);
+                    request.getRequestDispatcher("Controlador?menu=Semilleros&accion=Listar").forward(request, response);
+                    break;
+                case "Actualizar":
+                    int seID = Integer.parseInt(request.getParameter("txt_IdSemi"));
+                    String nombre_S = request.getParameter("txt_nombre");
+                    int G_ID = Integer.parseInt(request.getParameter("txt_GrupoInID"));
+                    se.setId_semi(seID);
+                    se.setNombre_s(nombre_S);
+                    se.setGrupo_in_id(G_ID);
+                    seDAO.actualizar(se);
+                    request.getRequestDispatcher("Controlador?menu=Semilleros&accion=Listar").forward(request, response);
+                    break;
+                case "Eliminar":
+
+                    break;
+                default:
+                    throw new AssertionError();
+            }
+            request.getRequestDispatcher("Semilleros.jsp").forward(request, response);
         } else {
             request.getRequestDispatcher("Bloqueo.jsp").forward(request, response);
         }

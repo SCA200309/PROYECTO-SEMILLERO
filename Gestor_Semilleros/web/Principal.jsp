@@ -31,6 +31,15 @@
                     <li class="nav-item active">
                         <a style="margin-left: 10px; border: none" class="nav-link" href="#">Home </a>
                     </li>
+                                        <li class="nav-item">
+                        <a style="margin-left: 10px; border: none" class="nav-link" href="Controlador?menu=SemillerosPerH&accion=Listar" target="myFrame2">Personas Por Semillero</a>
+                    </li>
+                    <li class="nav-item">
+                        <a style="margin-left: 10px; border: none" class="nav-link" href="Controlador?menu=Semilleros&accion=Listar" target="myFrame2">Semilleros</a>
+                    </li>
+                    <li class="nav-item">
+                        <a style="margin-left: 10px; border: none" class="nav-link" href="Controlador?menu=RegistroH&accion=Listar" target="myFrame2">Registro Horas</a>
+                    </li>
                 </ul>
             </div>
             <div class="dropdown">
@@ -50,7 +59,7 @@
             </div>
         </nav>
         <div class="m-4" style="height: 650px">
-            <iframe name="myFrame" style="height: 100%; width: 100%; border: none"></iframe>
+            <iframe name="myFrame2" style="height: 100%; width: 100%; border: none"></iframe>
         </div>
         <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>

@@ -8,7 +8,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="icon" href="https://www.cjexpressenvios.com/media/wysiwyg/alothemes/shopping-cart-empty.png">
+        <link rel="icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRuDH3iORv8AIUb_W6kxE3XkUtMn5ae2szTQER01ZGkSKFJiOzZwn9keMKNqJEf-NyhapM&usqp=CAU">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
@@ -21,7 +21,7 @@
                     <form class="form-sign" action="Validar" method="POST">
                         <div class="form-group text-center">
                             <h3>Login</h3>
-                            <img src="IMAGES/vender-mas-navidad.png" alt="250" width="250"/>
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRuDH3iORv8AIUb_W6kxE3XkUtMn5ae2szTQER01ZGkSKFJiOzZwn9keMKNqJEf-NyhapM&usqp=CAU" alt="250" width="250"/>
                             <label id="Login">Bienvenido de Nuevo al Sistema</label>
                         </div>
                         <div class="form-group">
