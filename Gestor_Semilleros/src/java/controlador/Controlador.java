@@ -49,14 +49,22 @@ public class Controlador extends HttpServlet {
                         request.setAttribute("semilleros", lista);
                         break;
                     case "Agregar":
-
                         String nombre_semi = request.getParameter("txt_nombre");
-                        String id_grupo = request.getParameter("txt_GrupoInID");
+                        int id_grupo = Integer.parseInt(request.getParameter("txt_GrupoInID"));
+
                         se.setNombre_s(nombre_semi);
-                        se.setGrupo_in_id(Integer.parseInt(id_grupo));
-                        seDAO.registrar(se);
+                        se.setGrupo_in_id(id_grupo);
+
+                        boolean registrado = seDAO.registrar(se);
+                        if (registrado) {
+                            request.setAttribute("mensaje", "Registro exitoso del semillero.");
+                        } else {
+                            request.setAttribute("mensaje", "Error al registrar el semillero.");
+                        }
+
                         request.getRequestDispatcher("Controlador?menu=Semilleros&accion=Listar").forward(request, response);
                         break;
+
                     case "Editar":
                         id_se = Integer.parseInt(request.getParameter("id_s"));
                         Semilleros s = seDAO.listarId(id_se);
@@ -70,11 +78,28 @@ public class Controlador extends HttpServlet {
                         se.setId_semi(seID);
                         se.setNombre_s(nombre_S);
                         se.setGrupo_in_id(G_ID);
-                        seDAO.actualizar(se);
+
+                        boolean actualizado = seDAO.actualizar(se);
+                        if (actualizado) {
+                            request.setAttribute("mensaje", "Actualización exitosa.");
+                        } else {
+                            request.setAttribute("mensaje", "Error al actualizar el semillero.");
+                        }
+
                         request.getRequestDispatcher("Controlador?menu=Semilleros&accion=Listar").forward(request, response);
                         break;
-                    case "Eliminar":
 
+                    case "Eliminar":
+                        id_se = Integer.parseInt(request.getParameter("id_se"));
+                        boolean eliminado = seDAO.delete(id_se);
+
+                        if (eliminado) {
+                            request.setAttribute("mensaje", "Semillero eliminado exitosamente.");
+                        } else {
+                            request.setAttribute("mensaje", "Error al eliminar el semillero o semillero no encontrado.");
+                        }
+
+                        request.getRequestDispatcher("Controlador?menu=Semilleros&accion=Listar").forward(request, response);
                         break;
                     default:
                         throw new AssertionError();

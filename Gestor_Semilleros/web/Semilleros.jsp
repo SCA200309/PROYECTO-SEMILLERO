@@ -16,13 +16,18 @@
         <title>JSP Page</title>
     </head>
     <body>
+        <c:if test="${not empty mensaje}">
+            <script>
+                alert("${mensaje}");
+            </script>
+        </c:if>
         <div class="d-flex">
             <div class="card col-sm-6">
                 <div class="card-body">
                     <form action="Controlador?menu=Semilleros" method="POST">
                         <div class="form-group">
-                            <label>ID</label>
-                            <input type="text" value="${semillero.getId_semi()}" name="txt_IdSemi" class="form-control" required>
+                            <label>ID SEMILLERO</label>
+                            <input type="text" value="${semillero.getId_semi()}" name="txt_IdSemi" class="form-control" readonly>
                         </div>
                         <div class="form-group">
                             <label>Nombre</label>
@@ -51,10 +56,10 @@
                             <tr>
                                 <td>${s.getId_semi()}</td>
                                 <td>${s.getNombre_s()}</td>
-                                <td>${s.getGrupo_in_id()}</td>
+                                <td>${s.getGrupo_in()}</td>
                                 <td>
                                     <a class="btn btn-warning" href="Controlador?menu=Semilleros&accion=Editar&id_s=${s.getId_semi()}">Editar</a>
-                                    <a class="btn btn-danger" href="Controlador?menu=Semillero&accion=Eliminar&id_s=${s.getId_semi()}">Eliminar</a>
+                                    <a class="btn btn-danger" href="Controlador?menu=Semilleros&accion=Eliminar&id_se=${s.getId_semi()}">Eliminar</a>
                                 </td>
                             </tr>
                         </c:forEach>
